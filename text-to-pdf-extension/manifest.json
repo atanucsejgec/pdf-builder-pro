@@ -1,0 +1,16 @@
+{
+  "manifest_version": 3,
+  "name": "Ultimate PDF Tool",
+  "version": "2.0",
+  "description": "Convert web pages to PDF with advanced filtering and selection.",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "action": {
+    "default_popup": "popup.html",
+    "default_icon": "icon.png" 
+  },
+  "icons": {
+    "16": "icon.png",
+    "48": "icon.png",
+    "128": "icon.png"
+  }
+}

@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body { width: 340px; padding: 15px; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 13px; color: #333; }
+      h3 { margin: 0 0 15px 0; text-align: center; color: #1a73e8; }
+      .section-title { font-weight: 600; margin-top: 15px; margin-bottom: 8px; border-bottom: 1px solid #eee; padding-bottom: 4px; color: #555; }
+      .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+      label { cursor: pointer; }
+      select, input[type="number"], input[type="text"] { padding: 4px 6px; border: 1px solid #ccc; border-radius: 4px; }
+      input[type="number"] { width: 50px; }
+      input[type="text"] { width: 100%; box-sizing: border-box; } 
+      
+      input[type="color"] { border: none; width: 40px; height: 25px; cursor: pointer; padding: 0; background: none; }
+
+      .checkbox-group { display: flex; flex-direction: column; gap: 6px; margin-top: 8px; }
+      .checkbox-item { display: flex; align-items: center; gap: 8px; }
+      .margin-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+      .margin-item { display: flex; justify-content: space-between; align-items: center; }
+      .margin-item input { width: 45px; }
+      #progress-container { width: 100%; background-color: #f1f1f1; border-radius: 4px; height: 8px; margin-top: 10px; display: none; overflow: hidden; }
+      #progress-bar { width: 0%; height: 100%; background-color: #1a73e8; transition: width 0.2s; }
+      button { background-color: #1a73e8; color: white; border: none; margin-top: 15px; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: 600; width: 100%; transition: background 0.2s; }
+      button:hover { background-color: #1557b0; }
+      #status { margin-top: 8px; text-align: center; color: #666; font-size: 12px; min-height: 15px; }
+      
+      .hidden { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <h3>PDF Builder Pro</h3>
+
+    <div class="row">
+        <label>Export Format:</label>
+        <select id="exportFormat">
+            <option value="pdf">PDF Document</option>
+            <option value="doc">Word Document (.doc)</option>
+        </select>
+    </div>
+
+    <div class="row"><label>Filename:</label></div>
+    <div class="row" style="margin-top:-5px;"><input type="text" id="filename" placeholder="document"></div>
+
+    <div class="checkbox-group">
+        <div class="checkbox-item"><input type="checkbox" id="fixMath" checked><label for="fixMath">Fix Math Equations</label></div>
+        <div class="checkbox-item"><input type="checkbox" id="tableAsImage"><label for="tableAsImage">Capture Tables as Image</label></div>
+        
+        <div class="checkbox-item"><input type="checkbox" id="includeImages" checked><label for="includeImages">Include Images</label></div>
+
+        <div class="checkbox-item"><input type="checkbox" id="selectionOnly"><label for="selectionOnly">Only Selected Text</label></div>
+        <div class="checkbox-item"><input type="checkbox" id="cleanMode" checked><label for="cleanMode">Clean Mode (Remove Ads/Nav)</label></div>
+        <div class="checkbox-item"><input type="checkbox" id="includeCode" checked><label for="includeCode">Include Code Blocks</label></div>
+        <div class="checkbox-item"><input type="checkbox" id="showPageNumbers" checked><label for="showPageNumbers">Add Page Numbers (PDF)</label></div>
+    </div>
+
+    <div class="section-title">Appearance</div>
+    <div class="row">
+        <label>Font Style:</label>
+        <select id="fontStyle">
+            <option value="helvetica">Helvetica / Arial</option>
+            <option value="times">Times New Roman</option>
+            <option value="courier">Courier New</option>
+        </select>
+    </div>
+    <div class="row">
+        <label>Background Color:</label>
+        <input type="color" id="bgColor" value="#ffffff">
+    </div>
+    <div class="row">
+        <label>Text Color:</label>
+        <input type="color" id="textColor" value="#000000">
+    </div>
+
+    <div class="section-title">Typography</div>
+    <div class="row">
+        <label>Size Mode:</label>
+        <select id="fontMode">
+            <option value="uniform">Uniform (Fixed Size)</option>
+            <option value="original">Original (Webpage)</option>
+            <option value="relative">Relative (Scale +/-)</option>
+        </select>
+    </div>
+    <div class="row" id="row-fontSize">
+      <label>Base Size (pt):</label>
+      <input type="number" id="fontSize" value="10" min="6" max="72">
+    </div>
+    <div class="row hidden" id="row-fontScale">
+       <label>Adjust (+/-):</label>
+       <input type="number" id="fontScale" value="0" step="1">
+    </div>
+    <div class="row">
+      <label>Line Height:</label>
+      <input type="number" id="lineHeight" value="1.0" step="0.1" min="0.5" max="3.0">
+    </div>
+
+    <div class="section-title">Page Setup</div>
+    <div class="row">
+        <label>Columns:</label>
+        <select id="columnCount">
+            <option value="1">1 Column (Standard)</option>
+            <option value="2">2 Columns (Compact)</option>
+        </select>
+    </div>
+    <div class="row">
+        <label>Paper:</label>
+        <select id="paperSize">
+            <option value="a4">A4</option>
+            <option value="letter">Letter</option>
+            <option value="legal">Legal</option>
+        </select>
+    </div>
+    <div class="row" style="justify-content: flex-start; gap: 15px;">
+        <label><input type="radio" name="orientation" value="p" checked> Portrait</label>
+        <label><input type="radio" name="orientation" value="l"> Landscape</label>
+    </div>
+
+    <div class="section-title">Margins (cm)</div>
+    <div class="margin-grid">
+      <div class="margin-item"><label>Top</label> <input type="number" id="marginTop" value="1" step="0.1"></div>
+      <div class="margin-item"><label>Bot</label> <input type="number" id="marginBottom" value="1" step="0.1"></div>
+      <div class="margin-item"><label>Left</label> <input type="number" id="marginLeft" value="1" step="0.1"></div>
+      <div class="margin-item"><label>Right</label> <input type="number" id="marginRight" value="1" step="0.1"></div>
+    </div>
+
+    <button id="convertBtn">Download</button>
+    <div id="progress-container"><div id="progress-bar"></div></div>
+    <div id="status"></div>
+    
+    <script src="jspdf.min.js"></script>
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>
