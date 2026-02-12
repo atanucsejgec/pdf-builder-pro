@@ -3,7 +3,7 @@
 **The Ultimate Web-to-PDF Converter for Developers & Students for Printout.** *Specialized support for Ai Chats, Math Equations, Code Blocks, and Complex Tables.*
 
 <div align="center">
-  <img src="screenshots/demo-hero.png" width="50%" height= "50%" alt="PDF Builder Pro Demo">
+  <img src="screenshots/demo-hero.png" width="300" height= "500" alt="PDF Builder Pro Demo">
 </div>
 
 ## 🎯 The Goal: Print Smart, Save Hard.
@@ -63,12 +63,16 @@ Open your browser and type `chrome://extensions` in the address bar.
 ### Step 3: Enable Developer Mode
 Toggle the **"Developer mode"** switch in the top-right corner.
 
-![Enable Developer Mode](screenshots/install-1.png)
+<div align="center">
+  <img src="screenshots/install-1.png" width="300" height= "500" alt="Enable Developer Mode">
+</div>
 
 ### Step 4: Load the Extension
 Click the **"Load unpacked"** button in the top-left corner.
 
-![Load Unpacked](screenshots/install-2.png)
+<div align="center">
+  <img src="screenshots/install-2.png" width="300" height= "500" alt="Load Unpacked">
+</div>
 
 ### Step 5: Select Folder
 Select the folder where you extracted the project files.
