@@ -1,6 +1,6 @@
 # PDF Builder Pro 🚀
 
-**The Ultimate Web-to-PDF Converter for Developers & Students.** *Specialized support for Gemini Chats, Math Equations, Code Blocks, and Complex Tables.*
+**The Ultimate Web-to-PDF Converter for Developers & Students.** *Specialized support for Ai Chats, Math Equations, Code Blocks, and Complex Tables.*
 
 ![PDF Builder Pro Demo](screenshots/demo-hero.png)
 
@@ -36,9 +36,9 @@ Code snippets are treated as first-class citizens.
 Love using Dark Mode? No problem.
 The extension intelligently analyzes screenshots of tables and formulas. It mathematically removes the dark background pixels and recolors the text to black, so your PDF looks clean and printable on white paper.
 
-### 4. 🤖 Optimized for AI Chats (Gemini)
+### 4. 🤖 Optimized for AI Chats (Ai)
 - Auto-detects the chat title for the filename.
-- Adds **"You:"** and **"Gemini:"** speaker labels to the PDF.
+- Adds **"You:"** and **"Ai:"** speaker labels to the PDF.
 - Removes UI clutter like "Thumbs Up", "Copy", and "Listen" buttons.
 
 ### 5. 📸 Visual Captures
