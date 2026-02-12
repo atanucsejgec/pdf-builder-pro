@@ -2,7 +2,9 @@
 
 **The Ultimate Web-to-PDF Converter for Developers & Students for Printout.** *Specialized support for Ai Chats, Math Equations, Code Blocks, and Complex Tables.*
 
-![PDF Builder Pro Demo](screenshots/demo-hero.png)
+<div align="center">
+  <img src="screenshots/demo-hero.png" width="50%" alt="PDF Builder Pro Demo">
+</div>
 
 ## 🎯 The Goal: Print Smart, Save Hard.
 
